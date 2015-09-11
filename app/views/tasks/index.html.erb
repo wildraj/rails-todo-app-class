@@ -12,8 +12,9 @@
 <% @tasks.each do |task| %>
   <p style="font-size: 1.5em">  <%= task.name %> <%= link_to("Edit",edit_task_path(task)) %> <%= link_to("Delete",task_path(task), method: :delete) %>
     <% if task.checked %>
-    <%= button_to "" %>
+      <%= button_to "Uncomplete", {id: task.id, action: 'uncomplete'} %>
     <% else %>
+      <%= button_to "Complete", {id: task.id, action: 'complete'}  %>
     <% end %>
 
   </p>

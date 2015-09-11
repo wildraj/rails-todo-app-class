@@ -3,10 +3,18 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
-  def active
+  def uncomplete
+    @task = Task.find(params[:id])
+    @task.checked = false
+    @task.save
+    redirect_to tasks_path
   end
 
   def complete
+    @task = Task.find(params[:id])
+    @task.checked = true
+    @task.save
+    redirect_to tasks_path
   end
 
   def edit

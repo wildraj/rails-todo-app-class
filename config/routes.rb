@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   get 'tasks/complete'
 
-  get 'tasks/edit'
+  post 'tasks/:id/complete' => 'tasks#complete'
+
+  post 'tasks/:id/uncomplete' => 'tasks#uncomplete'
+  #get 'tasks/edit'
 
   resources :tasks
 
